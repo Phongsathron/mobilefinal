@@ -17,7 +17,10 @@ class QuoteUtils{
       final file = await _quoteFile(userId);
       // Read the file
       String contents = await file.readAsString();
-      return contents;
+      if(contents.length > 0){
+        return contents;
+      }
+      return ' ';
     } catch (e) {
       return ' ';
     }

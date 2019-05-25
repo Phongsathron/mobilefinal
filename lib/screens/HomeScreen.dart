@@ -50,6 +50,7 @@ class HomeScreenState extends State<HomeScreen>{
               child: RaisedButton(
                 child: Text("Profile Setup"),
                 onPressed: () {
+                  Navigator.of(context).pushNamed('/profile-setup');
                 },
               )
             ),
