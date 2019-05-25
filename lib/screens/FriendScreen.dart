@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:http/http.dart' as http;
 
+import 'TodoScreen.dart';
+
 class FriendsScreen extends StatelessWidget{
 
   @override
@@ -60,7 +62,11 @@ class FriendsScreen extends StatelessWidget{
                               ),
                             ),
                             onTap: () {
-
+                              Navigator.of(context).push(
+                                MaterialPageRoute(builder: (BuildContext context) {
+                                  return TodoScreen(userId: friend.id, name: friend.name);
+                                })
+                              );
                             },
                           )
                         )
