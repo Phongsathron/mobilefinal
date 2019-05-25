@@ -32,7 +32,7 @@ class HomeScreenState extends State<HomeScreen>{
                 "Hello ${this.name}",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 30,
+                  fontSize: 23,
                 ),
                 textAlign: TextAlign.left,
               ),
