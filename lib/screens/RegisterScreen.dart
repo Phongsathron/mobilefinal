@@ -52,8 +52,8 @@ class RegisterScreenState extends State<RegisterScreen>{
                     icon: Icon(Icons.account_circle)
                   ),
                   validator: (value) {
-                    if (!value.trim().contains(' ')){
-                      return 'ต้องมีทั้งชื่อและนามสกุล โดยคั่นด้วย space 1 space เท่านั้น';
+                    if (!value.trim().contains(' ') || ' '.allMatches(value).length != 1){
+                      return 'ต้องมีทั้งชื่อและนามสกุล\nโดยคั่นด้วย space 1 space เท่านั้น';
                     }
                   },
                   onSaved: (value){

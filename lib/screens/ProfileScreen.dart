@@ -59,8 +59,8 @@ class ProfileScreenState extends State<ProfileScreen>{
                 labelText: 'Name'
               ),
               validator: (value) {
-                if (!value.trim().contains(' ')){
-                  return 'ต้องมีท้ัง ชื่อและนามสกุล โดยคั่นด้วย space 1 space เท่านั้น';
+                if (!value.trim().contains(' ') || ' '.allMatches(value).length != 1){
+                  return 'ต้องมีท้ัง ชื่อและนามสกุล\nโดยคั่นด้วย space 1 space เท่านั้น';
                 }
               },
               onSaved: (value) {
