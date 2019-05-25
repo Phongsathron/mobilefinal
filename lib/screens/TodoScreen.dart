@@ -34,7 +34,6 @@ class TodoScreen extends StatelessWidget{
             FutureBuilder(
               future: this.fetchTodo(),
               builder: (BuildContext context, AsyncSnapshot snapshot) {
-                print('${this.userId} ${this.name}');
                 if (snapshot.hasData) {
                   return Expanded(
                     child: ListView.builder(
