@@ -88,6 +88,7 @@ class LoginScreenState extends State<LoginScreen> {
                         }
                         else{
                           this._storeUser(user);
+                          Navigator.of(context).pushReplacementNamed('/home');
                         }
                       }
                     },
