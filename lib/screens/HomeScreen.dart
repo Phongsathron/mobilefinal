@@ -59,7 +59,7 @@ class HomeScreenState extends State<HomeScreen>{
               child: RaisedButton(
                 child: Text("My Friend"),
                 onPressed: () {
-                  
+                  Navigator.of(context).pushNamed('/friend');
                 },
               )
             ),
