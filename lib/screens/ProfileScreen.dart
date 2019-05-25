@@ -24,6 +24,12 @@ class ProfileScreenState extends State<ProfileScreen>{
   String password;
   String quote;
 
+  var userIdTextController = new TextEditingController();
+  var nameTextController = new TextEditingController();
+  var ageTextController = new TextEditingController();
+  var passwordTextController = new TextEditingController();
+  var quoteTextController = new TextEditingController();
+
   @override
   void initState() {
     super.initState();
@@ -42,6 +48,7 @@ class ProfileScreenState extends State<ProfileScreen>{
           padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
           children: <Widget>[
             TextFormField(
+              controller: userIdTextController,
               decoration: InputDecoration(
                 labelText: 'User Id',
               ),
@@ -55,6 +62,7 @@ class ProfileScreenState extends State<ProfileScreen>{
               },
             ),
             TextFormField(
+              controller: nameTextController,
               decoration: InputDecoration(
                 labelText: 'Name'
               ),
@@ -68,6 +76,7 @@ class ProfileScreenState extends State<ProfileScreen>{
               },
             ),
             TextFormField(
+              controller: ageTextController,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 labelText: 'Age'
@@ -89,6 +98,7 @@ class ProfileScreenState extends State<ProfileScreen>{
               },
             ),
             TextFormField(
+              controller: passwordTextController,
               decoration: InputDecoration(
                 labelText: 'Password'
               ),
@@ -103,6 +113,7 @@ class ProfileScreenState extends State<ProfileScreen>{
               },
             ),
             TextFormField(
+              controller: quoteTextController,
               decoration: InputDecoration(
                 labelText: 'Quote'
               ),
@@ -152,10 +163,20 @@ class ProfileScreenState extends State<ProfileScreen>{
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await this.userProvider.open('user.db');
     User user = await this.userProvider.getUser(prefs.getInt('userId'));
-
+    String quote = await QuoteUtils.readQuote(user.id);
     setState(() {
       this.user = user;
+      this.userId = user.userId;
+      // this.name = user.name;
+      // this.password = user.password;
+      // this.age = user.age;
+      this.userIdTextController.text = user.userId;
+      this.nameTextController.text = user.name;
+      this.ageTextController.text = '${user.age}';
+      this.passwordTextController.text = user.password;
+      this.quoteTextController.text = quote;
     });
+    print(user.password);
   }
 
   void _showNotUniqueDialog() {
