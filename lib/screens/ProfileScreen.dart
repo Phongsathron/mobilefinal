@@ -6,14 +6,14 @@ import 'package:mobilefinal2/utils/Quote.dart';
 import 'package:sqflite/sqflite.dart';
 
 
-class ProfileSetupScreen extends StatefulWidget{
+class ProfileScreen extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
-    return ProfileSetupScreenState();
+    return ProfileScreenState();
   }
 }
 
-class ProfileSetupScreenState extends State<ProfileSetupScreen>{
+class ProfileScreenState extends State<ProfileScreen>{
   final _formKey = GlobalKey<FormState>();
   User user;
   UserProvider userProvider = UserProvider();
